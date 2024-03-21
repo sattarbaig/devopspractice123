@@ -1,15 +1,15 @@
-#1/bin/bash
-DATE=$(date +%F)
+#!/bin/bash
 APP_LOGS=/home/centos/app.log
 LOGSDIR=/home/centos/shellscript.log
-LOGFILE=$LOGSDIR/$SCRIPT_NAME-$DATE.log
+LOGFILE=/home/$SCRIPT_NAME-$DATE.log
+DATE=$(date +%F)
+
 
 FILES_TO_DELETE=$(find $APP_LOGS -name "*.logs" -type f -mtime +14)
 echo "script started at $DATE" &>>$LOGFILE
 
 while read line
-do 
-  echo "deleting $line" &>>$LOGFILE
-  rm -rf $line
+do
+    echo "delete $line" &>>$LOGFILE
+    rm -rf $line
 done <<< $FILES_TO_DELETE
-  

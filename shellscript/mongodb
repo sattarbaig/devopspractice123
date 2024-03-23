@@ -1,0 +1,49 @@
+#!/bin/sh
+DATE=$(date +%F)
+LOGSDIR=/tmp
+LOGFILE=$LOGSDIR/$0-$DATE.log
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+USERID=$(id -u)
+if [ $USERID -ne 0 ]
+then
+   echo -e "run this script with error"
+fi
+
+
+VALIDATE(){
+   if [ $1 -ne 0 ]
+   then
+      echo -e "$2 ::: SR is failure $N"
+      exit 1
+
+   else
+      echo -e "$2 ::: $G is success $N"
+   fi
+}
+
+cp . /etc/yum.repos.d/mongo.repo
+
+yum install mongodb-org -y &>>$LOGFILE
+VALIDATE $? "mongodb-org  installation"
+
+systemctl enable mongod
+VALIDATE $? "enable mongod"
+
+systemctl start mongod
+VALIDATE $i "start mongod"
+
+vim /etc/mongod.conf
+sed -i "s/127.0.0.1/0.0.0.0" /etc/mongod.conf &>>/etc/mongod.conf
+
+systemctl restart mongod
+VALIDATE $? "restart mongod"
+
+
+
+
+
+

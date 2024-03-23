@@ -1,7 +1,7 @@
-#!/bin/bash
-echo "enter username"
+#!/bin/sh
+echo "enter your username"
 read -s USERNAME
-echo "username is : $USERNAME"
-echo "enter your password"
+echo "username is $USERNAME"
+echo "enter your passwd"
 read -s PASSWD
-echo "password is :$PASSWD"
+echo "password is $PASSWD"

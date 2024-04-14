@@ -1,0 +1,10 @@
+- name: writing variables
+  hosts: node1
+  vars:
+    COURSE: AWS WITH DEVOPS
+    TRAINER: SIVA
+    DURATION: 110 days
+  tasks:
+  - name: print variables
+    ansible.builtin.debug: 
+      msg: "course is {{COURSE}}, trainer is {{TRAINER}}, duration uis {{DURATION}}"

@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><style >html { background-color: #f2f3f3; }</style></head>
+<body class="">
+  <script type="text/javascript">
+    (function() {
+        var hashArgs = "#" + (window.location.href.split("#")[1] || "");
+        var queryParams = window.location.search ? (window.location.search + "&") : "?";
+        var encodedHashArgs = "hashArgs=" + encodeURIComponent( hashArgs );
+        var redirectUrl = window.location.pathname + queryParams + encodedHashArgs;
+
+        window.location.replace( redirectUrl );
+    })();
+  </script>
+  <noscript>
+    <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 1em; font-family: sans-serif">
+      Your web browser must have JavaScript enabled
+      in order for this application to display correctly.
+    </div>
+  </noscript>
+</body>
+</html>

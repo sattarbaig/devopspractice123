@@ -2,7 +2,7 @@
 
 LOGSDIR=/tmp/$0-$DATE
 SCRIPT_NAME=$0
-DATE=$9date +%F)
+DATE=$(date +%F)
 
 R="\e[31m"
 G="\e[32m"

@@ -2,7 +2,7 @@
 
 LOGSDIR=/tmp/$0-$DATE
 SCRIPT_NAME=$0
-DATE=$(date +%F)
+DATE=$(datei +%F)
 
 R="\e[31m"
 G="\e[32m"
@@ -23,7 +23,7 @@ VALIDATE(){
 
 
 USERID=$(id -u)
-if [ $USERID -ne 0]
+if [ $USERID -ne 0 ]
 then
    echo "ERROR: PLEASE run this script with error"
    exit 1
